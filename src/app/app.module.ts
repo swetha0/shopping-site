@@ -1,5 +1,22 @@
-import { BrowserModule} from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+// Firebase services + enviorment module
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+// App components
+import { AppComponent } from './app.component';
+// App routing modules
+// import { AppRoutingModule1 } from './Auth_1/shared/routing/app-routing.module';
+// Auth service
+// import { AuthService } from './Auth_1/shared/services/auth.service';
+import { BrowserModule } from '@angular/platform-browser';
+// import { DashboardComponent } from './Auth_1/components/dashboard/dashboard.component';
+// import { ForgotPasswordComponent } from './Auth_1/components/forgot-password/forgot-password.component';
+import { NgModule } from '@angular/core';
+// Reactive Form
+// import { SignInComponent } from './Auth_1/components/sign-in/sign-in.component';
+// import { SignUpComponent } from './Auth_1/components/sign-up/sign-up.component';
+// import { VerifyEmailComponent } from './Auth_1/components/verify-email/verify-email.component';
+import { environment } from 'src/environments/environment';
 import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,8 +49,8 @@ import { MatButtonModule,
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { ToastaModule } from 'ngx-toasta';
 import { BidiModule } from '@angular/cdk/bidi';
@@ -41,7 +58,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
-import { environment } from '../environments/environment';
+
 
 import { AppRoutes } from './app-routing';
 import { GlobalModule } from './Global/Global.module';
@@ -50,7 +67,7 @@ import { MenuItems } from './Core/menu/menu-items/menu-items';
 
 import { EmbryoService } from './Services/Embryo.service';
 
-import { AppComponent } from './app.component';
+
 import { MainComponent } from './Main/Main.component';
 import { HeaderOneComponent } from './Layouts/Header/HeaderOne/HeaderOne.component';
 import { HeaderTwoComponent } from './Layouts/Header/HeaderTwo/HeaderTwo.component';
@@ -66,6 +83,7 @@ import { NotFoundComponent } from './Pages/NotFound/NotFound.component';
 import { SideBarMenuComponent } from './Layouts/Menu/SidebarMenu/SidebarMenu.component';
 import { PaymentDetailSideBarComponent } from './Layouts/PaymentDetailSideBar/PaymentDetailSideBar.component';
 import { FixedHeaderComponent } from './Layouts/Header/FixedHeader/FixedHeader.component';
+import { SessionModule } from './Pages/Session/Session.module';
 
 
 /********** Custom option for ngx-translate ******/
@@ -90,7 +108,12 @@ export function createTranslateLoader(http: HttpClient) {
     FooterTwoComponent,
     HomeThreeComponent,
     HeaderThreeComponent,
-    FixedHeaderComponent
+    FixedHeaderComponent,
+   //  SignInComponent,
+    // SignUpComponent,
+    // DashboardComponent,
+   //  ForgotPasswordComponent,
+    // VerifyEmailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'embryo-seo-pre'}),
@@ -128,8 +151,13 @@ export function createTranslateLoader(http: HttpClient) {
     ReactiveFormsModule,
     LoadingBarRouterModule,
     LoadingBarModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebase, 'embryo'),
+    AngularFireModule.initializeApp(environment.firebase, 'shoppingproject'),
     AngularFirestoreModule,
+    // AppRoutingModule1,
+    SessionModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    ReactiveFormsModule,
     AngularFireDatabaseModule,
     ToastaModule.forRoot(),
     BidiModule,
@@ -144,7 +172,8 @@ export function createTranslateLoader(http: HttpClient) {
   ],
    providers: [
       MenuItems,
-      EmbryoService
+      EmbryoService,
+      // AuthService
    ],
    bootstrap: [AppComponent]
 })

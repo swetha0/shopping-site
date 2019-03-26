@@ -34,9 +34,14 @@ import { MatButtonModule,
 } from '@angular/material';
 
 import { RegisterComponent } from './Register/Register.component';
-import { SignInComponent } from './SignIn/SignIn.component';
-import { ForgotPasswordComponent } from './ForgotPassword/ForgotPassword.component';
+import { SignInComponent } from '../../Auth_1/components/sign-in/sign-in.component';
+import { SignUpComponent } from 'src/app/Auth_1/components/sign-up/sign-up.component';
+import { VerifyEmailComponent } from 'src/app/Auth_1/components/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from 'src/app/Auth_1/components/forgot-password/forgot-password.component';
+
+// import { ForgotPasswordComponent } from './ForgotPassword/ForgotPassword.component';
 import { ThankYouComponent } from './ThankYou/ThankYou.component';
+import { DashboardComponent } from 'src/app/Auth_1/components/dashboard/dashboard.component';
 
 @NgModule({
    imports: [
@@ -75,7 +80,10 @@ import { ThankYouComponent } from './ThankYou/ThankYou.component';
       RegisterComponent,
       SignInComponent,
       ThankYouComponent,
-      ForgotPasswordComponent
+      ForgotPasswordComponent,
+      VerifyEmailComponent,
+      SignUpComponent,
+      DashboardComponent
    ]
 })
 export class SessionModule { }

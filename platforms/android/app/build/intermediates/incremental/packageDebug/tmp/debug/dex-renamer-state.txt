@@ -1,0 +1,4 @@
+#Tue Mar 19 21:14:09 IST 2019
+base.0=C\:\\Users\\Dhinakar Reddy\\Desktop\\9_F_DH_J_E-COMMERSE\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

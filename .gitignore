@@ -5,7 +5,7 @@
 /dist
 /tmp
 /out-tsc
-
+/www
 # dependencies
 /node_modules
 

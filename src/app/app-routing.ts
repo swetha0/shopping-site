@@ -8,6 +8,7 @@ import { HomeTwoComponent } from './Pages/Home/HomeTwo/HomeTwo.component';
 import { HomeThreeComponent } from './Pages/Home/HomeThree/HomeThree.component';
 import { CartComponent } from './Pages/Cart/Cart.component';
 import { NotFoundComponent } from './Pages/NotFound/NotFound.component';
+import { AuthGuard } from './Auth_1/shared/guard/auth.guard';
 
 export const AppRoutes: Routes = [
    {
@@ -24,7 +25,8 @@ export const AppRoutes: Routes = [
          },
          {
             path : 'home-two',
-            component : HomeTwoComponent
+            component : HomeTwoComponent,
+            canActivate: [AuthGuard]
          },
          {
             path : 'home-three',

@@ -1,6 +1,11 @@
 {
-  "name": "embryo",
-  "version": "2.0.0",
+  "name": "com.online.shopping",
+  "displayName": "ShoppingEcommerce",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
   "scripts": {
     "ng": "ng",
     "start": "node dist/server.js",
@@ -11,7 +16,9 @@
     "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
     "serve:ssr": "node dist/server.js",
     "build:client-and-server-bundles": "ng build --prod && ng run embryo:server",
-    "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
+    "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
+    "electron": "electron ./www/index.html",
+    "electron-build": "ng build --prod && electron ./www/index.html"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +28,7 @@
     "@angular/common": "^7.1.0",
     "@angular/compiler": "^7.1.0",
     "@angular/core": "^7.1.0",
-    "@angular/fire": "^5.1.0",
+    "@angular/fire": "^5.1.2",
     "@angular/flex-layout": "^7.0.0-beta.19",
     "@angular/forms": "^7.1.0",
     "@angular/http": "^7.1.0",
@@ -40,8 +47,11 @@
     "angular-instantsearch": "^2.1.0",
     "card": "^2.4.0",
     "classlist.js": "^1.1.20150312",
+    "cordova-android": "^7.1.4",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-whitelist": "^1.3.3",
     "core-js": "^2.5.7",
-    "firebase": "^5.5.9",
+    "firebase": "^5.9.0",
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",
     "ng2-toasty": "^4.0.3",
@@ -49,16 +59,17 @@
     "ngx-card": "^0.2.4",
     "ngx-slick-carousel": "^0.4.4",
     "ngx-toasta": "^0.1.0",
+    "node-sass": "^4.11.0",
     "path": "^0.12.7",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
     "slick-carousel": "^1.8.1",
     "web-animations-js": "^2.3.1",
-    "zone.js": "^0.8.26"
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.5",
-    "@angular/cli": "^7.0.6",
+    "@angular/cli": "^7.3.6",
     "@angular/compiler-cli": "^7.2.8",
     "@angular/language-service": "^7.1.0",
     "@types/jasmine": "^3.3.0",
@@ -67,6 +78,8 @@
     "@types/node": "^10.12.10",
     "codelyzer": "^4.5.0",
     "copy-webpack-plugin": "^4.6.0",
+    "electron": "^4.1.0",
+    "electron-packager": "^13.1.1",
     "express": "^4.16.4",
     "jasmine-core": "^3.3.0",
     "jasmine-spec-reporter": "^4.2.1",
@@ -84,5 +97,14 @@
     "webpack-cli": "^3.1.2",
     "ws": "^6.1.2",
     "xmlhttprequest": "^1.8.0"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {}
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }
